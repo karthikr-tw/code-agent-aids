@@ -1,0 +1,81 @@
+{
+  "$schema": "https://aka.ms/vscode-copilot-mcp-server-schema",
+  "name": "analysis",
+  "description": "Demo MCP server providing static analysis, OpenAPI diffs, accessibility checks, and test heuristics.",
+  "binary": "uv run python",
+  "args": [
+    "-m",
+    "analysis.server"
+  ],
+  "env": {
+    "ANALYSIS_API_KEY": "${env:ANALYSIS_API_KEY:-}"
+  },
+  "tools": [
+    {
+      "name": "openapi_diff",
+      "description": "Compare two OpenAPI specs and summarise breaking changes.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "baseline": {
+            "type": "string",
+            "description": "Path or URL to the current OpenAPI document."
+          },
+          "candidate": {
+            "type": "string",
+            "description": "Path or URL to the proposed OpenAPI document."
+          }
+        },
+        "required": [
+          "baseline",
+          "candidate"
+        ]
+      }
+    },
+    {
+      "name": "a11y_audit",
+      "description": "Audit JSX/HTML snippets for accessibility violations.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "JSX or HTML markup to analyse."
+          },
+          "context": {
+            "type": "string",
+            "description": "Optional component or route name for report labelling."
+          }
+        },
+        "required": [
+          "source"
+        ]
+      }
+    },
+    {
+      "name": "test_heuristics",
+      "description": "Suggest extra test cases based on recent code edits.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "diff": {
+            "type": "string",
+            "description": "Unified diff or code snippet representing the change."
+          },
+          "language": {
+            "type": "string",
+            "enum": [
+              "python",
+              "typescript"
+            ],
+            "description": "Language hint to tailor suggestions."
+          }
+        },
+        "required": [
+          "diff"
+        ]
+      }
+    }
+  ]
+}
+

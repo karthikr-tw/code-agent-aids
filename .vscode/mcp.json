@@ -1,0 +1,9 @@
+{
+  "servers": {
+    "analysis": {
+      "type": "stdio",
+      "command": "uv",
+      "args": ["run", "python", "mcp/analysis.py"]
+    }
+  }
+}
