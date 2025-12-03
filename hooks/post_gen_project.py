@@ -82,7 +82,7 @@ def main() -> None:
     else:
         print(
             "[post_gen_project] Unable to determine template commit. "
-            "Run `uvx cruft link gh:karthikr-tw/code-agent-aids --checkout main` after install to refresh."  # noqa: E501
+            "Run `uvx cruft link https://github.com/karthikr-tw/code-agent-aids --checkout main` after install to refresh."  # noqa: E501
         )
 
 
