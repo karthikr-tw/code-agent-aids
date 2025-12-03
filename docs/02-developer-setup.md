@@ -11,10 +11,10 @@ Prerequisites
 	- `uv tool install cruft`
 
 ## Bootstrapping from the template
-- Prefer `uvx cruft create gh:karthikr-tw/code-agent-aids` so the generated project carries a `.cruft.json` file pointing back to this template commit.
+- Prefer `uvx cruft create https://github.com/karthikr-tw/code-agent-aids` so the generated project carries a `.cruft.json` file pointing back to this template commit.
 - Answer the prompts for `project_name`, `project_slug`, `project_description`, and `python_version`—the defaults come from `cookiecutter.json` in this repo and match the current docs.
 - Inside the generated repo, run `uvx cruft check` periodically to see if template updates are available, and `uvx cruft update` to merge them (resolve conflicts and run `uv run pytest -q` afterward).
-- When running plain Cookiecutter (`uvx cookiecutter gh:karthikr-tw/code-agent-aids`), the `hooks/post_gen_project.py` script automatically writes `.cruft.json` by resolving the template commit with `git ls-remote`. If the hook fails (for example, Git is unavailable or you are fully offline), rerun `uvx cruft link gh:karthikr-tw/code-agent-aids --checkout main` after generation to recreate the config before attempting `uvx cruft check`.
+- When running plain Cookiecutter (`uvx cookiecutter https://github.com/karthikr-tw/code-agent-aids`), the `hooks/post_gen_project.py` script automatically writes `.cruft.json` by resolving the template commit with `git ls-remote`. If the hook fails (for example, Git is unavailable or you are fully offline), rerun `uvx cruft link https://github.com/karthikr-tw/code-agent-aids --checkout main` after generation to recreate the config before attempting `uvx cruft check`.
 - For a one-off scaffold without upgrade tracking you can delete `.cruft.json`, but future template updates must then be merged manually.
 
 ## Working locally with uv
