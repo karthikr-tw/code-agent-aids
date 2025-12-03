@@ -1,5 +1,5 @@
 def main():
-    print("Hello from agent-aided-coding-main!")
+    print("Hello from {{ cookiecutter.project_name }}!")
 
 
 if __name__ == "__main__":

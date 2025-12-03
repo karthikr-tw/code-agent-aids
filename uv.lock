@@ -3,7 +3,7 @@ revision = 3
 requires-python = ">=3.12"
 
 [[package]]
-name = "agent-aided-coding-main"
+name = "{{ cookiecutter.project_slug }}"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
